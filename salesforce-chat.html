@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Salesforce Chat Widget</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .embeddedServiceHelpButton .helpButton .uiButton {
+      background-color: #005290;
+      font-family: "Arial", sans-serif;
+    }
+
+    .embeddedServiceHelpButton .helpButton .uiButton:focus {
+      outline: 1px solid #005290;
+    }
+  </style>
+</head>
+<body>
+  <!-- The chat button will render itself in the page -->
+
+  <script type='text/javascript'>
+    var initESW = function(gslbBaseURL) {
+      embedded_svc.settings.displayHelpButton = true;
+      embedded_svc.settings.language = '';
+
+      embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+      embedded_svc.settings.entryFeature = 'LiveAgent';
+
+      embedded_svc.init(
+        'https://storm-c6de54826de557.my.salesforce.com',
+        'https://storm-c6de54826de557.my.site.com/B2BLightning',
+        gslbBaseURL,
+        '00DIT000003peo6',
+        'SDO_B2B_Commerce_Lightning_Bot',
+        {
+          baseLiveAgentContentURL: 'https://c.la1-c2-it3.salesforceliveagent.com/content',
+          deploymentId: '572IT000000HHZn',
+          buttonId: '573IT000000LU8z',
+          baseLiveAgentURL: 'https://d.la1-c2-it3.salesforceliveagent.com/chat',
+          eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I3G0000008OcfUAE_1832230a912',
+          isOfflineSupportEnabled: false
+        }
+      );
+    };
+
+    if (!window.embedded_svc) {
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://storm-c6de54826de557.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+      s.onload = function() {
+        initESW(null);
+      };
+      document.body.appendChild(s);
+    } else {
+      initESW('https://service.force.com');
+    }
+  </script>
+</body>
+</html>
