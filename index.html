@@ -24,24 +24,25 @@
 <body>
   <!-- The chat button will render itself in the page -->
 This is chat
-  <script type='text/javascript'>
-    function initEmbeddedMessaging() {
-        try {
-            embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+ <script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-            embeddedservice_bootstrap.init(
-                '00DIT000003peo6',
-                'VF',
-                'https://storm-c6de54826de557.my.site.com/ESWVF1756298668980',
-                {
-                    scrt2URL: 'https://storm-c6de54826de557.my.salesforce-scrt.com'
-                }
-            );
-        } catch (err) {
-            console.error('Error loading Embedded Messaging: ', err);
-        }
-    };
+			embeddedservice_bootstrap.init(
+				'00DIT000003peo6',
+				'VF',
+				'https://storm-c6de54826de557.my.site.com/ESWVF1756298668980',
+				{
+					scrt2URL: 'https://storm-c6de54826de557.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
 </script>
 <script type='text/javascript' src='https://storm-c6de54826de557.my.site.com/ESWVF1756298668980/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 </body>
 </html>
